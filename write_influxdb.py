@@ -242,7 +242,7 @@ class InfluxDB(object):
 
     def init(self):
         self._types = parse_types(*self._typesdb)
-        self._client = influxdb.influxdb08.InfluxDBClient(**self._config)
+        self._client = influxdb.InfluxDBClient(**self._config)
         self._queues = collections.defaultdict(lambda: BulkPriorityQueue())
         self._flush_thread = PeriodicTimer(self._buffer_sec,
                                            self._flush,
